@@ -1,0 +1,39 @@
+class hayeon {
+  hayeon() {
+    x = random(width);
+    y = random(height);
+    d = random(20, 5);
+    vx = random(3, 6);
+    vy = random(3, 6);
+  }
+  hayeon(float a, float b, float c) {
+    x = a;
+    y = b;
+    d = c;
+    vx = random(3, 6);
+    vy = random(3, 6);
+  }
+  float x, y, d, vx, vy;
+  void hayeon3() {
+    // x : 캐릭터 위치 x좌표
+    // y : 캐릭터 위치 y 좌표
+    // d:  캐릭터 크기 비율
+
+    fill(#FFA07A);
+    circle(x, y, 20*d); //몸통
+    fill(#FFFFFF);
+    circle(x-5*d, y-3*d, 5*d); // 왼쪽 눈
+    circle(x+5*d, y-3*d, 5*d); // 오른쪽 눈
+    fill(0);
+    circle(x-5*d, y-3*d, 2*d); // 눈동자
+    circle(x+5*d, y-3*d, 2*d); // 눈동자
+    line(x, y+d*2, x, y); // 코
+    fill(#FF0000);
+    //noStroke();
+    arc(x, y+4*d, 10*d, 5*d, 0, PI);//입
+    fill(#E9967A);
+    ellipse(x-7*d, y+2*d, 5*d, 2*d); //볼터치
+    ellipse(x+7*d, y+2*d, 5*d, 2*d);
+    fill(#F0E68C);
+  }
+}
