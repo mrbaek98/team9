@@ -1,0 +1,88 @@
+class captain {
+  captain() {
+    x = random(width);
+    y = random(height);
+    d = 10;
+    vx=random(3, 4);
+    vy=random(-3, -1);
+    k=new hayeon(x, y, 1.5*d);
+  }
+  captain(float ii) {
+    x = random(width);
+    y = random(height);
+    d = ii;
+    vx=random(3, 4);
+    vy=random(-3, -1);
+    k=new hayeon(x, y, 1.5*d);
+  }
+  float x, y, d, vx, vy;
+  hayeon k;
+  void sang() {
+
+    fill(random(width), random(width), random(width));
+    beginShape();
+    vertex(x, y-15*d);
+    vertex(x+5*d, y-5*d);
+    vertex(x+14*d, y-5*d);
+    vertex(x+5*d, y);
+    vertex(x+11*d, y+10*d);
+    vertex(x, y+5*d);
+    vertex(x-11*d, y+10*d);
+    vertex(x-5*d, y);
+    vertex(x-14*d, y-5*d);
+    vertex(x-5*d, y-5*d);
+    vertex(x, y-15*d);
+    endShape();
+  }
+  void yup() {
+    x+=vx;
+    y+=vy;
+    if (x>width ||x<0) vx=-vx;
+    if (y>height ||y<0) vy=-vy;
+  }
+  void display() {
+    k.x=x+40*d;
+    k.y=y+15*d;
+    k.hayeon3();
+    //원
+    fill(220, 20, 60);
+    circle(x, y, 60*d);
+    fill(255, 255, 255);
+    circle(x, y, 50*d);
+    fill(220, 20, 60);
+    circle(x, y, 40*d);
+    fill(0, 0, 255);
+    circle(x, y, 30*d);
+    //별
+    fill(245, 245, 245);
+    beginShape();
+    vertex(x, y-15*d);
+    vertex(x+5*d, y-5*d);
+    vertex(x+14*d, y-5*d);
+    vertex(x+5*d, y);
+    vertex(x+11*d, y+10*d);
+    vertex(x, y+5*d);
+    vertex(x-11*d, y+10*d);
+    vertex(x-5*d, y);
+    vertex(x-14*d, y-5*d);
+    vertex(x-5*d, y-5*d);
+    vertex(x, y-15*d);
+    endShape();
+    //별 중간 선
+    line(x+5*d, y-5*d, x, y);
+    line(x+5*d, y, x, y);
+    line(x, y+5*d, x, y);
+    line(x-5*d, y, x, y);
+    line(x-5*d, y-5*d, x, y);
+  }
+  void collide(jun b) {
+    float dd;
+    dd = sqrt((x-b.x)*(x-b.x) + (y-b.y)*(y-b.y));
+    if (dd < (60*d+37.5*b.d)/2) {
+      vx = -vx;
+      vy=-vy;
+      b.vx =- b.vx;
+      b.vy =- b.vy;
+    }
+  }
+}
