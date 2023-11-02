@@ -1,0 +1,26 @@
+captain [] a;
+jun[]bb;
+void setup() {
+  size(800, 600);
+  a= new captain[5];
+  bb=new jun[5];
+  for (int i=0; i<5; i++) {
+    a[i] = new captain((float)random(1, 2));
+    bb[i] = new jun();
+  }
+}
+void draw() {
+  background(0, 255, 255);
+
+  for (int i=0; i<5; i++) {
+
+    for (int j=0; j<5; j++) {
+      a[i].collide(bb[j]);
+    }
+    a[i].display();
+    a[i].sang();
+    a[i].yup();
+    bb[i].bono();
+    bb[i].move();
+  }
+}
