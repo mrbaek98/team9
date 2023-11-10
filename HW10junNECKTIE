@@ -1,0 +1,12 @@
+class bononecktie extends jun {
+  bononecktie(float a, float b, float c) {
+    super(a, b, c);
+  }
+
+  void drawnecktie() {
+    bono();
+    fill(255, 0, 0);
+    triangle(x, y + d * 15, x - d * 8, y + d * 15 + d * 8, x - d * 8, y + d * 15 - d * 8);
+    triangle(x, y + d * 15, x + d * 8, y + d * 15 + d * 8, x + d * 8, y + d * 15 - d * 8);
+  }
+}
