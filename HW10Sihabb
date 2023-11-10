@@ -1,0 +1,8 @@
+class bb extends Siha {
+  bb(float p, float q, float r) {
+    super(p, q, r);
+  }
+  void show() {
+    Life();
+  }
+}
