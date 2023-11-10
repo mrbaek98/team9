@@ -1,0 +1,38 @@
+Siha [] a;
+bonoears[]bb;
+bononecktie []cc;
+void setup() {
+  size(800, 600);
+  a= new Siha[3];
+  bb=new bonoears[3];
+  cc=new bononecktie[3];
+  a[0] = new Siha(150, 150, 1);
+  a[1] = new aa(450, 150, 1);
+  a[2] = new bb(200, 200, 1);
+
+  for (int i=0; i<3; i++) {
+    bb[i] = new bonoears(random(width), random(height), random(1, 2));
+    cc[i] = new bononecktie(random(width), random(height), random(1, 2));
+  }
+}
+void draw() {
+  background(0, 255, 255);
+
+  for (int i=0; i<3; i++) {
+    for (int j=0; j<3; j++) {
+      a[i].collide(bb[j]);
+      a[i].collide(cc[j]);
+    }
+    bb[i].drawears();
+    bb[i].move();
+    cc[i].drawnecktie();
+    cc[i].move();
+  }
+  a[0].Life();
+  a[0].sang();
+  a[0].move();
+  a[1].show();
+  a[1].move();
+  a[2].show();
+  a[2].move();
+}
