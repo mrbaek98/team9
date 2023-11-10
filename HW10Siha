@@ -1,0 +1,71 @@
+class Siha {
+  Siha() {
+  };
+  Siha(float p, float q, float r) {
+    x = p;
+    y = q;
+    d = r;
+    vx=random(5, 6);
+    vy=random(5, 6);
+  }
+  float vx, vy;
+  float x, y, d;
+  void Life() {
+    //원
+    fill(220, 20, 60);
+    circle(x, y, 60*d);
+    fill(255, 255, 255);
+    circle(x, y, 50*d);
+    fill(220, 20, 60);
+    circle(x, y, 40*d);
+    fill(0, 0, 255);
+    circle(x, y, 30*d);
+  }
+  void sang() {
+
+    fill(random(width), random(width), random(width));
+    beginShape();
+    vertex(x, y-15*d);
+    vertex(x+5*d, y-5*d);
+    vertex(x+14*d, y-5*d);
+    vertex(x+5*d, y);
+    vertex(x+11*d, y+10*d);
+    vertex(x, y+5*d);
+    vertex(x-11*d, y+10*d);
+    vertex(x-5*d, y);
+    vertex(x-14*d, y-5*d);
+    vertex(x-5*d, y-5*d);
+    vertex(x, y-15*d);
+    endShape();
+  }
+  void show() {
+  };  // virtual function
+  void move() {
+    x+=vx;
+    y+=vy;
+    if (x>width) vx=-vx;
+    if (x<0) vx=-vx;
+    if (y>height) vy=-vy;
+    if (y<0) vy=-vy;
+  }
+  void collide(bonoears b) {
+    float dd;
+    dd = sqrt((x-b.x)*(x-b.x) + (y-b.y)*(y-b.y));
+    if (dd < (60*d+37.5*b.d)/2) {
+      vx = -vx;
+      vy=-vy;
+      b.vx =- b.vx;
+      b.vy =- b.vy;
+    }
+  }
+  void collide(bononecktie b) {
+    float dd;
+    dd = sqrt((x-b.x)*(x-b.x) + (y-b.y)*(y-b.y));
+    if (dd < (60*d+37.5*b.d)/2) {
+      vx = -vx;
+      vy=-vy;
+      b.vx =- b.vx;
+      b.vy =- b.vy;
+    }
+  }
+}
