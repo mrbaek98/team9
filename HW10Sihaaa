@@ -1,0 +1,29 @@
+class aa extends Siha {
+  aa(float p, float q, float r) {
+    super(p, q, r);
+  }
+  void show() {
+    Life();
+    //별
+    fill(245, 245, 245);
+    beginShape();
+    vertex(x, y-15*d);
+    vertex(x+5*d, y-5*d);
+    vertex(x+14*d, y-5*d);
+    vertex(x+5*d, y);
+    vertex(x+11*d, y+10*d);
+    vertex(x, y+5*d);
+    vertex(x-11*d, y+10*d);
+    vertex(x-5*d, y);
+    vertex(x-14*d, y-5*d);
+    vertex(x-5*d, y-5*d);
+    vertex(x, y-15*d);
+    endShape();
+    //별 중간 선
+    line(x+5*d, y-5*d, x, y);
+    line(x+5*d, y, x, y);
+    line(x, y+5*d, x, y);
+    line(x-5*d, y, x, y);
+    line(x-5*d, y-5*d, x, y);
+  }
+}
