@@ -1,0 +1,16 @@
+#pragma once
+#include <fstream>
+using namespace std;
+class LoL {
+public:
+	LoL() {}
+	LoL(int n1, int n2, float A, float B, float X0, float DX, int M, char* name);
+	~LoL();
+	int N1, N2, m;
+	float a, b, x0, dx;
+	int* f1d;
+	float* f2d;
+	void f0(ofstream &);
+	void f1();
+	void f2();
+};
