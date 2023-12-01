@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <Windows.h>
+#include<algorithm>
+using namespace std;
+int main() {
+	int NI = 10, NO = 10, k=10,n=5,lost=0; 
+	vector <int> queue;
+	int capacity = 100;
+	if (capacity < queue.size() + k) {
+		lost += queue.size() + k - capacity;
+		k = capacity - queue.size();
+	}
+	for (int i = 0; i < k; i++) {
+		queue.push_back(rand() % 20);//1-19사이숫자 넣기
+		cout << queue[i] << " " << queue.size() << endl;
+		
+	}
+	
+	cout << endl;
+	for (int i = 0; i < n; i++) {
+		if (queue.size() != 0) { 
+			cout << queue[0] << "\n";
+			cout << queue.size() << endl;
+			cout << endl;
+			queue.erase(queue.begin());
+		}
+	}
+
+	return 123;
+}
