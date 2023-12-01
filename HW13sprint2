@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+	int NI = 7, NO = 15, ni, no; //7개넣고 15개나가고
+	vector <int> q;
+	ni = rand() % NI; //ni 랜덤값만큼 넣어준다.
+	cout << ni << endl;
+	for (int i = 0; i < ni; i++) {
+		q.push_back(rand() % 20);//0~19값 넣음
+		cout << q[q.size() - 1] << " in " << q.size() << endl;
+	}
+	no = rand() % NO; //no의 랜덤값만큼 앞에서 뺀다.
+	cout << no << endl;
+	for (int i = 0; i < no; i++) {
+		int ii = q[0];
+		if (q.size() != 0) {
+			cout << ii << " out " << q.size() << endl;
+			q.erase(q.begin());//앞에서부터 넣은값 삭제.
+		}
+	}
+	return 123;
+}
